@@ -1,0 +1,330 @@
+/* ========================================================
+   CarePulse AI – Intelligent Healthcare UI & Glassmorphism System
+   ======================================================== */
+
+:root {
+    --cp-primary: #0d9488;
+    --cp-primary-hover: #0f766e;
+    --cp-primary-light: #ccfbf1;
+    --cp-primary-glow: rgba(13, 148, 136, 0.25);
+    --cp-secondary: #0284c7;
+    --cp-accent: #10b981;
+    --cp-dark: #0f172a;
+    --cp-card-bg: rgba(255, 255, 255, 0.85);
+    --cp-card-border: rgba(226, 232, 240, 0.8);
+    --cp-glass-nav: rgba(255, 255, 255, 0.88);
+    --cp-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 5px 15px -5px rgba(0, 0, 0, 0.03);
+    --cp-shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.08);
+}
+
+[data-bs-theme="dark"] {
+    --cp-primary: #14b8a6;
+    --cp-primary-hover: #2dd4bf;
+    --cp-primary-light: rgba(20, 184, 166, 0.15);
+    --cp-primary-glow: rgba(20, 184, 166, 0.3);
+    --cp-secondary: #38bdf8;
+    --cp-card-bg: rgba(30, 41, 59, 0.78);
+    --cp-card-border: rgba(51, 65, 85, 0.6);
+    --cp-glass-nav: rgba(15, 23, 42, 0.88);
+    --cp-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.35);
+    --cp-shadow-lg: 0 20px 45px -10px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: var(--bs-body-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+}
+
+/* Glassmorphism Navigation */
+.navbar-glass {
+    background: var(--cp-glass-nav);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--cp-card-border);
+    transition: all 0.3s ease;
+}
+
+.brand-logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0d9488 0%, #0284c7 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 12px var(--cp-primary-glow);
+}
+
+.brand-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--bs-body-color);
+}
+
+.brand-ai {
+    color: var(--cp-primary);
+    background: linear-gradient(135deg, #0d9488, #0284c7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Glass Cards */
+.glass-card {
+    background: var(--cp-card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--cp-card-border);
+    border-radius: 1rem;
+    box-shadow: var(--cp-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.glass-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--cp-shadow-lg);
+    border-color: var(--cp-primary);
+}
+
+/* Theme Button & Colors */
+.btn-teal {
+    background-color: var(--cp-primary);
+    border-color: var(--cp-primary);
+    color: #ffffff !important;
+}
+
+.btn-teal:hover {
+    background-color: var(--cp-primary-hover);
+    border-color: var(--cp-primary-hover);
+    color: #ffffff !important;
+}
+
+.btn-outline-teal {
+    border-color: var(--cp-primary);
+    color: var(--cp-primary);
+}
+
+.btn-outline-teal:hover {
+    background-color: var(--cp-primary);
+    color: #ffffff !important;
+}
+
+.text-teal {
+    color: var(--cp-primary) !important;
+}
+
+.bg-teal-subtle {
+    background-color: var(--cp-primary-light) !important;
+}
+
+.fs-xs {
+    font-size: 0.75rem;
+}
+
+/* KPI Metric Cards */
+.metric-card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-card .icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.metric-number {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* User Avatars */
+.user-avatar-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cp-primary), var(--cp-secondary));
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.role-badge {
+    font-size: 0.68rem;
+    padding: 2px 7px;
+    border-radius: 6px;
+}
+
+.role-patient { background-color: rgba(2, 132, 199, 0.15); color: #0284c7; }
+.role-doctor  { background-color: rgba(16, 185, 129, 0.15); color: #10b981; }
+.role-admin   { background-color: rgba(245, 158, 11, 0.15); color: #d97706; }
+
+/* Status Badges */
+.badge-confirmed { background-color: #dcfce7; color: #15803d; }
+.badge-in_consultation { background-color: #e0f2fe; color: #0369a1; animation: pulseGlow 1.8s infinite; }
+.badge-completed { background-color: #f1f5f9; color: #475569; }
+.badge-pending_payment { background-color: #fef3c7; color: #b45309; }
+.badge-cancelled { background-color: #fee2e2; color: #b91c1c; }
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(3, 105, 161, 0.4); }
+    70% { box-shadow: 0 0 0 8px rgba(3, 105, 161, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(3, 105, 161, 0); }
+}
+
+/* Smart Queue Badge */
+.queue-token-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cp-primary), var(--cp-secondary));
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px var(--cp-primary-glow);
+    margin: 0 auto;
+}
+
+.queue-token-circle .token-num {
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.queue-token-circle .token-lbl {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Video Consultation Window */
+.video-container {
+    background-color: #0f172a;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-pip {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 180px;
+    height: 120px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    background: #1e293b;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+}
+
+.video-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.video-btn:hover {
+    transform: scale(1.1);
+}
+
+.video-btn.active-off {
+    background-color: #ef4444;
+    color: white;
+}
+
+/* Prescription Print Format */
+@media print {
+    .no-print, nav, footer, .btn, .theme-toggle-btn {
+        display: none !important;
+    }
+    .print-sheet {
+        box-shadow: none !important;
+        border: none !important;
+        background: white !important;
+        color: black !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.pulse-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #10b981;
+    animation: livePulse 1.5s infinite;
+}
+
+@keyframes livePulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
